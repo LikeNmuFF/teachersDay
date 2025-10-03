@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ma'am Jolo</title>
+    <link rel="stylesheet" href="design/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="teacher-page">
+        <header class="hero-header">
+            <img src="asset/jolo/pic4.jpg" alt="A personalized banner" class="hero-image">
+            <div class="hero-text">
+                <h1>A Happy Teachers Day, Ma'am Sitti Mariam Morales Jolo!</h1>
+                <p>From <b>BSCS III-B</b> </p>
+            </div>
+        </header>
+
+        <main>
+            <section class="poem-container" id="poemContainer" data-aos="fade-up">
+                <h2>A Poem For You (Click to Read)</h2>
+                <p class="poem-preview">
+                    "A teacher's light, a guiding star,
+                    You show us who we truly are..."
+                </p>
+            </section>
+
+            <section class="gallery-container">
+                <h2 data-aos="fade-up">Mini Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="asset/jolo/pic5.jpg" alt="Gallery image 1">
+                        <div class="gallery-caption">
+                            
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="asset/jolo/pic2.jpg" alt="Gallery image 2">
+                        <div class="gallery-caption">
+                            
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="asset/jolo/pic3.jpg" alt="Gallery image 3">
+                        <div class="gallery-caption">
+                            
+                        </div>
+
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="asset/jolo/pic6.jpg" alt="Gallery image 4">
+                        <div class="gallery-caption">
+                            
+                        </div>
+                   </div> 
+                </div>
+            </section>
+        </main>
+
+        <aside class="carousel-aside" data-aos="fade-left">
+            <h2>Ma'am's Moments</h2>
+            <div class="carousel-container">
+                <img src="asset/jolo/pic1.jpg" alt="Ma'am Jolo Image 1" class="active">
+                <img src="asset/jolo/pic2.jpg" alt="Ma'am Jolo Image 2">
+                <img src="asset/jolo/pic3.jpg" alt="Ma'am Jolo Image 3">
+            </div>
+        </aside>
+
+    </div>
+
+    <div id="poemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="tulip-decor tulip-top-left"></div>
+            <div class="tulip-decor tulip-bottom-right"></div>
+            <h2>The Guiding Light</h2>
+            <p id="fullPoem">
+                In classrooms bright, a gentle grace,
+                You light the path in every place.
+                A compass true, a patient hand,
+                The finest teacher in the land.
+
+                Your lessons learned, not just of books,
+                But kindness in your smiling looks.
+                You see the strength, the dream untold,
+                Turning hesitant hearts to bold.
+
+                Like a phoenix rising, strong and clear,
+                You banish doubt and quell all fear.
+                With wisdom shared and spirit high,
+                You teach us how to reach the sky.
+
+                For all the seeds of thought you sow,
+                The knowledge that you help us grow,
+                A heartfelt thanks, a happy cheer,
+                We wish you joy throughout the year!
+            </p>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize the AOS library
+      AOS.init({
+          duration: 800, // animation duration in milliseconds
+          once: true,     // whether animation should happen only once - while scrolling down
+      });
+
+      // --- Poem Modal Logic ---
+      const modal = document.getElementById("poemModal");
+      const poemContainer = document.getElementById("poemContainer");
+      const closeBtn = document.getElementsByClassName("modal-close")[0];
+
+      // Open the modal when the poem container is clicked
+      poemContainer.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      // Close the modal when the user clicks on (x)
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // Close the modal when the user clicks anywhere outside of the modal
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // --- Carousel Logic ---
+      let currentImageIndex = 0;
+      const images = document.querySelectorAll('.carousel-container img');
+      const totalImages = images.length;
+
+      function showNextImage() {
+        // Hide the current image
+        images[currentImageIndex].classList.remove('active');
+
+        // Calculate the next image index
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+
+        // Show the new image
+        images[currentImageIndex].classList.add('active');
+      }
+
+      // Start the carousel (change image every 4 seconds)
+      if (totalImages > 1) {
+          setInterval(showNextImage, 4000);
+      }
+    </script>
+</body>
+</html>

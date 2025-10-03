@@ -1,0 +1,480 @@
+/* Import a modern, professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- PHOENIX COLOR PALETTE (Inspired by reds, golds, and deep blues) --- */
+:root {
+    --primary-color: #8c241e; /* Deep Phoenix Red */
+    --secondary-color: #ffb703; /* Bright Gold/Orange */
+    --accent-color: #023e73; /* Deep Navy Blue */
+    --background-light: #fff8f5; /* Very light cream/peach */
+    --text-dark: #1a1a1a;
+    --text-light: #f8f9fa;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base styles for h2, h1 for a bolder look */
+h1, h2 {
+    font-weight: 800;
+}
+
+/* --- Login Page Styles (Keeping them the same for contrast) --- */
+/* (Assuming you have existing login styles in your full project CSS) */
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px) brightness(0.6);
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-form h2, .login-form p {
+    color: var(--text-light);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.login-form h2 {
+    margin-bottom: 10px;
+}
+
+.login-form p {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-light);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.login-form input:focus {
+    outline: none;
+    background-color: rgba(0,0,0,0.4);
+    border-color: var(--secondary-color);
+}
+
+.login-form button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #ff8c00; /* A slightly darker gold for hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.error-message {
+    color: #ffcdd2;
+    margin-top: 15px;
+    min-height: 20px;
+    font-weight: 600;
+}
+
+/* --- Teacher Page Styles --- */
+.teacher-page {
+    max-width: 1200px; /* Increased max-width for more content space */
+    margin: 0 auto;
+    padding: 20px 0; /* Add top/bottom padding for separation */
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main carousel";
+    grid-template-columns: 3fr 1fr; /* Main content is wider than carousel */
+    gap: 40px;
+}
+
+.hero-header {
+    grid-area: header;
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Slightly reduced hero height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* MODIFIED: Use 'contain' to show the full picture and fill background with accent color */
+    object-fit: contain;
+    background-color: var(--accent-color);
+    z-index: -1;
+    filter: brightness(0.4) saturate(1.2); /* Deeper, richer image effect */
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size */
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 8px var(--accent-color);
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+main {
+    grid-area: main;
+    padding: 0 20px;
+}
+
+/* --- Carousel/Aside Styles --- */
+.carousel-aside {
+    grid-area: carousel;
+    padding: 20px;
+    margin-right: 20px; /* Aligns with main content's padding */
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: fit-content; /* Make the box only as tall as its content */
+    position: sticky; /* Sticky on scroll */
+    top: 40px; /* Position from the top */
+}
+
+.carousel-aside h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.carousel-container {
+    height: 300px; /* Fixed height for the carousel area */
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.carousel-container img {
+    width: 100%;
+    height: 100%;
+    /* MODIFIED: Use 'contain' to show the full picture and fill background with accent color */
+    object-fit: contain;
+    background-color: var(--accent-color);
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-container img.active {
+    opacity: 1;
+}
+
+
+/* --- Poem Container & Modal Styles --- */
+.poem-container {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 0 auto 60px auto;
+    max-width: 100%; /* Use full width of the grid area */
+    line-height: 1.8;
+    font-size: 1.1rem;
+    cursor: pointer; /* Indicate it's clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.poem-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.poem-container h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.poem-container p.poem-preview {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    color: #6c757d;
+}
+
+/* Modal for the full poem */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+    position: relative;
+    border: 5px solid var(--secondary-color);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.modal-content p {
+    white-space: pre-wrap; /* Preserve poem formatting */
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-close {
+    color: var(--primary-color);
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Tulip Design for Modal */
+.tulip-decor {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+.tulip-top-left {
+    top: -30px;
+    left: -30px;
+    background: url('https://i.imgur.com/Kx4J3vY.png') no-repeat center/contain; /* Placeholder Tulip Image */
+    transform: rotate(30deg);
+}
+.tulip-bottom-right {
+    bottom: -30px;
+    right: -30px;
+    background: url('https://i.imgur.com/Kx4J3vY.png') no-repeat center/contain; /* Placeholder Tulip Image */
+    transform: rotate(210deg);
+}
+
+
+/* --- Gallery Styles --- */
+.gallery-container {
+    max-width: 100%;
+    margin-bottom: 60px;
+}
+
+.gallery-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px; /* Fixed height for gallery images */
+    /* MODIFIED: Use 'contain' to show the full picture and fill background with light color */
+    object-fit: contain;
+    background-color: var(--background-light);
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+    padding: 40px 20px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-caption h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Less aggressive zoom */
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+
+/* For Tablets and larger phones */
+@media (max-width: 992px) {
+    .teacher-page {
+        grid-template-areas:
+            "header"
+            "carousel"
+            "main";
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 20px;
+    }
+
+    .carousel-aside {
+        margin: 0 20px;
+        position: static; /* Remove sticky on mobile */
+    }
+}
+
+/* For Mobile phones */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px;
+    }
+    .hero-header {
+        height: 40vh;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .poem-container {
+        padding: 30px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        margin: 5% auto;
+        width: 90%;
+        padding: 20px;
+    }
+    .tulip-decor {
+        width: 60px;
+        height: 60px;
+    }
+    .tulip-top-left { top: -10px; left: -10px; }
+    .tulip-bottom-right { bottom: -10px; right: -10px; }
+}
