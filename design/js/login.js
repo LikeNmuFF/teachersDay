@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
             password: "Jolo",
             redirect: "maamjo.html"
         },
-        "mr.reyes": {
-            password: "mathwiz",
-            redirect: "mr_reyes.html"
+        "Alhamid": {
+            password: "Fernandez",
+            redirect: "siral.html"
         },
         "ms.chen": {
             password: "scienceart",
