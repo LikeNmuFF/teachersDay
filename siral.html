@@ -88,25 +88,9 @@
             <div class="star-decor star-top-left">⭐</div>
             <div class="star-decor star-bottom-right">✨</div>
             <h2>The Guiding Light</h2>
-            <p>In classrooms bright, a gentle grace,
-You light the path in every place.
-A compass true, a patient hand,
-The finest teacher in the land.
-
-Your lessons learned, not just of books,
-But kindness in your smiling looks.
-You see the strength, the dream untold,
-Turning hesitant hearts to bold.
-
-With wisdom deep and patience kind,
-You shape and mold each eager mind.
-You banish doubt and quell all fear,
-And teach us how to persevere.
-
-For all the seeds of thought you sow,
-The knowledge that you help us grow,
-A heartfelt thanks, a happy cheer,
-We wish you joy throughout the year!</p>
+            <p>
+                
+            </p>
         </div>
     </div>
 
@@ -150,6 +134,10 @@ We wish you joy throughout the year!</p>
                 orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
             });
         });
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            // Redirect back to the login page (index.html)
+            window.location.href = 'index.html'; 
+        }
     </script>
 </body>
 </html>
