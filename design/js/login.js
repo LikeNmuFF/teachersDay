@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (users[enteredUsername]) {
             // Check if password matches
             if (users[enteredUsername].password === enteredPassword) {
+                
+                // *** NEW CODE: Set the flag for a successful login ***
+                localStorage.setItem('isLoggedIn', 'true'); 
+                
                 // Redirect to the teacher's page
                 window.location.href = users[enteredUsername].redirect;
             } else {
