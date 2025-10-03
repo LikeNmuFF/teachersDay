@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Redirect to the teacher's page
                 window.location.href = users[enteredUsername].redirect;
             } else {
-                errorMessage.textContent = "Oops! Wrong password. Please try again.";
+                errorMessage.textContent = "Oops! Invalid Username or Password.";
             }
         } else {
-            errorMessage.textContent = "Oops! We couldn't find that username.";
+            errorMessage.textContent = "Oops! Invalid Username or Password.";
         }
     });
 });

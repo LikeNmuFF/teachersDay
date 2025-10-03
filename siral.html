@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Alhamid Jolo Fernandez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design/css/styla.css">
+</head>
+<body>
+    <!-- Animated Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Happy Teachers Day!</h1>
+                <p class="hero-subtitle">Sir Alhamid Jolo Fernandez</p>
+                <p class="hero-from">From BSCS III-B</p>
+            </div>
+        </section>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Poem Section -->
+            <div class="poem-card" id="poemCard">
+                <h2>✨ A Poem For You ✨</h2>
+                <p class="poem-preview">
+                    "With wisdom deep and patience kind,<br>
+                    You shape and mold each eager mind..."<br>
+                    <br>
+                    <em style="font-size: 0.9rem; color: var(--deep-purple);">Click to read the full poem</em>
+                </p>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="carousel-card">
+                    <h2>Sir's Moments</h2>
+                    <div class="carousel-container">
+                        <img src="asset/alhamid/pic1.jpg" alt="Teaching moment 1" class="active">
+                        <img src="asset/alhamid/pic5.jpg" alt="Teaching moment 2">
+                        <img src="asset/alhamid/pic6.jpg" alt="Teaching moment 3">
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2>📸 Memorable Moments</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="asset/alhamid/pic2.jpg" alt="Memory 1">
+                    <div class="gallery-overlay">
+                        <h3>Inspiring Excellence</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="asset/alhamid/pic1.jpg" alt="Memory 2">
+                    <div class="gallery-overlay">
+                        <h3>Guiding with Passion</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="asset/alhamid/pic3.jpg" alt="Memory 3">
+                    <div class="gallery-overlay">
+                        <h3>Creating Futures</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="asset/alhamid/pic4.jpg" alt="Memory 4">
+                    <div class="gallery-overlay">
+                        <h3>Empowering Minds</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="poemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="star-decor star-top-left">⭐</div>
+            <div class="star-decor star-bottom-right">✨</div>
+            <h2>The Guiding Light</h2>
+            <p>In classrooms bright, a gentle grace,
+You light the path in every place.
+A compass true, a patient hand,
+The finest teacher in the land.
+
+Your lessons learned, not just of books,
+But kindness in your smiling looks.
+You see the strength, the dream untold,
+Turning hesitant hearts to bold.
+
+With wisdom deep and patience kind,
+You shape and mold each eager mind.
+You banish doubt and quell all fear,
+And teach us how to persevere.
+
+For all the seeds of thought you sow,
+The knowledge that you help us grow,
+A heartfelt thanks, a happy cheer,
+We wish you joy throughout the year!</p>
+        </div>
+    </div>
+
+    <script>
+        // Poem Modal
+        const modal = document.getElementById('poemModal');
+        const poemCard = document.getElementById('poemCard');
+        const closeBtn = document.querySelector('.modal-close');
+
+        poemCard.onclick = () => modal.style.display = 'block';
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        };
+
+        // Carousel
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel-container img');
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        if (totalImages > 1) {
+            setInterval(showNextImage, 4000);
+        }
+
+        // Parallax effect for orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 50;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
