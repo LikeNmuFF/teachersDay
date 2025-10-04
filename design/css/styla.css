@@ -90,7 +90,14 @@ text-align: center;
 border-radius: 30px;
 overflow: hidden;
 margin-bottom: 60px;
-background: var(--glass-bg);
+
+/* --- NEW BACKGROUND IMAGE STYLES --- */
+background-image: url('../../asset/alhamid/p27.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+/* ---------------------------------- */
+
 backdrop-filter: blur(20px);
 border: 2px solid var(--glass-border);
 box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
@@ -103,8 +110,13 @@ top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background: var(--gradient-1);
-opacity: 0.6;
+
+/* --- NEW LIGHT GREY OVERLAY STYLES --- */
+/* A translucent light grey (RGB 200, 200, 200) with a high opacity */
+/* Use a linear-gradient for subtle white-to-grey effect for better visual appeal */
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(150, 150, 150, 0.8));
+
+opacity: 1; /* Set opacity to 1 because the color itself is translucent */
 z-index: 1;
 }
 
