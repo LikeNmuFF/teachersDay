@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             password: "Fernandez",
             redirect: "siral.html"
         },
-        "ms.chen": {
-            password: "scienceart",
-            redirect: "ms_chen.html"
+        "Abramar": {
+            password: "Alawiya",
+            redirect: "siralawiya.html"
         },
-        "mr.santos": {
-            password: "historybuff",
-            redirect: "mr_santos.html"
+        "Matheen": {
+            password: "Tabid",
+            redirect: "maammath.html"
         }
     };
 

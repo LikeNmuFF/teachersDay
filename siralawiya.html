@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Alawiya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    
+    <style>
+        :root {
+            --primary-color: #5d4293; /* Deep Violet/Purple */
+            --secondary-color: #ffc107; /* Gold/Amber */
+            --background-light: #f4f6f9;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6; /* Improved readability */
+        }
+
+        .teacher-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Hero Header */
+        .hero-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            position: absolute;
+            z-index: 1;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 0 10px; /* Prevents text from hugging screen edge on small devices */
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        /* Poem Section */
+        .poem-container {
+            text-align: center;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(93, 66, 147, 0.3);
+        }
+        
+        .poem-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(93, 66, 147, 0.5);
+        }
+
+        .poem-container h2 {
+            color: var(--secondary-color);
+            margin-bottom: 0;
+        }
+        
+        .poem-container p {
+            margin: 10px 0 0;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        /* Quote Section */
+        .quote-container {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .quote-container blockquote {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0 20px;
+        }
+        
+        .quote-container cite {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            /* Auto-fit and minmax makes this section inherently responsive */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Modal for Full Poem */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 10001; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.7); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            /* Use a responsive margin on top */
+            margin: 10% auto; 
+            padding: 40px;
+            border-radius: 15px;
+            border: 5px solid var(--primary-color);
+            width: 90%; /* Use high percentage width for mobile, capped by max-width */
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        .modal-content #fullPoem {
+            text-align: center;
+            font-style: italic;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        .modal-close {
+            color: var(--primary-color);
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #ff0000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ==================================== */
+        /* === MEDIA QUERIES FOR MOBILE UI === */
+        /* ==================================== */
+
+        /* Styles for screens smaller than 768px (most tablets/large phones and smaller) */
+        @media (max-width: 768px) {
+            /* Hero Header Adjustments */
+            .hero-header {
+                height: 300px; /* Reduce hero height for mobile */
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem; /* Smaller title font */
+            }
+
+            .hero-text p {
+                font-size: 1.2rem; /* Smaller subtitle font */
+            }
+
+            /* Main Content Adjustments */
+            main {
+                padding: 20px 10px; /* Reduce main padding */
+            }
+
+            h2 {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+
+            /* Quote Adjustments */
+            .quote-container blockquote {
+                font-size: 1.4rem; /* Smaller quote font */
+                padding: 0 10px;
+            }
+
+            .quote-container cite {
+                font-size: 1rem;
+            }
+
+            /* Poem Container Adjustments */
+            .poem-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .poem-container p {
+                font-size: 1rem !important; /* Smaller click prompt font */
+            }
+
+            /* Gallery Adjustments */
+            .gallery-grid {
+                /* Let auto-fit and minmax handle it, but reduce the min size if needed */
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+
+            .gallery-item img {
+                height: 150px; /* Reduce image height for mobile */
+            }
+
+            /* Modal Adjustments */
+            .modal-content {
+                margin: 5% auto; /* Move modal slightly higher on small screens */
+                padding: 20px;
+                width: 95%; /* Make it take up more screen width */
+            }
+
+            .modal-content #fullPoem {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="teacher-page">
+        <header class="hero-header">
+            <img src="asset/alawiya/pic1.jpg" alt="A personalized banner for Sir Alawiya" class="hero-image">
+            <div class="hero-text">
+                <h1 class="hero-title">Happy Teachers Day!</h1>
+                <p class="hero-subtitle">Sir Abramar Putong Alawiya</p>
+                <p class="hero-from">From BSCS III-B</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="poem-container" id="poemContainer" data-aos="fade-up">
+                <h2>A Heartfelt Poem</h2>
+                <p>
+                    Written by: Erica Joy R. Lim<br>
+                </p>
+                <p style="font-size: 1.2rem; margin-top: 10px; font-weight: 600;">
+                    Click to reveal the full poem! 📝
+                </p>
+            </section>
+            
+            <section class="gallery-container">
+                <h2 data-aos="fade-up">📸 Our Favorite Memories</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="asset/alawiya/pic2.png" alt="Class Photo 1">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="asset/alawiya/pic3.png" alt="Class Photo 2">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="asset/alawiya/pic4.png" alt="Class Photo 3">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                        <img src="asset/alawiya/pic5.png" alt="Class Photo 4">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="quote-container" data-aos="fade-in">
+                <h2>A Student's Appreciation</h2>
+                <blockquote data-aos="fade-right">
+                    "Sir Alawiya didn't just teach us the subject; He taught us how to love learning. His passion is truly infectious."
+                </blockquote>
+                <cite data-aos="fade-left">- eyyah</cite>
+            </section>
+        </main>
+    </div>
+
+    <div id="poemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 style="color: var(--primary-color);">Poem Title</h2>
+            <p id="fullPoem" style="white-space: pre-wrap; font-size: 1.1rem; line-height: 1.8;">
+                Poem drop here.
+            </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize the AOS library
+        AOS.init({
+            duration: 1000, 
+            once: true,    
+        });
+
+        // --- Poem Modal Logic ---
+        const modal = document.getElementById("poemModal");
+        const poemContainer = document.getElementById("poemContainer");
+        const closeBtn = document.getElementsByClassName("modal-close")[0];
+
+        // Open the modal when the poem container is clicked
+        poemContainer.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Close the modal when the user clicks on (x)
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
