@@ -408,6 +408,10 @@ line-height: 2;
 font-size: 1.2rem;
 color: #333;
 white-space: pre-wrap;
+/* FIX: Enable scrolling for the poem content */
+max-height: 50vh; 
+overflow-y: auto; 
+padding-right: 15px;
 }
 
 /* Decorative Elements */
@@ -466,4 +470,16 @@ right: 20px;
 .hero {
     height: 50vh;
 }
+
+/* Adjust modal paragraph height for smaller screens */
+.modal-content p {
+    max-height: 60vh; 
+}
+}
+
+
+#poemModal .modal-content p {
+    
+    text-align: justify; /* This is the key property for justification */
+    line-height: 1.6; /* Optional: Adjust line spacing for better readability with justify */
 }
