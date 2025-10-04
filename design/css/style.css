@@ -28,7 +28,6 @@ h1, h2 {
 }
 
 /* --- Login Page Styles (Keeping them the same for contrast) --- */
-/* (Assuming you have existing login styles in your full project CSS) */
 
 .video-background {
     position: fixed;
@@ -311,12 +310,24 @@ main {
     margin-bottom: 30px;
 }
 
-.modal-content p {
-    white-space: pre-wrap; /* Preserve poem formatting */
+/* --- Start of Justified/Readable Poem Content Styles --- */
+#fullPoem {
+    /* Center the text block itself */
+    margin: 0 auto; 
+    /* Set a slightly smaller max-width for better line lengths */
+    max-width: 500px; 
+    /* The key change: Justify the text for proper, uniform alignment */
+    text-align: justify; 
+    /* Improve readability with more space between paragraphs */
+    padding-bottom: 1.5rem; 
+    white-space: pre-wrap; /* Preserve poem/gratitude formatting */
     line-height: 1.7;
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
 }
+
+/* Note: Since the content inside #fullPoem is just plain text,
+   applying text-align: justify directly to the container is most effective. */
+/* --- End of Justified/Readable Poem Content Styles --- */
 
 .modal-close {
     color: var(--primary-color);
@@ -490,6 +501,11 @@ main {
     }
     .tulip-top-left { top: -10px; left: -10px; }
     .tulip-bottom-right { bottom: -10px; right: -10px; }
+    
+    #fullPoem {
+        /* Adjust for smaller screens */
+        max-width: 100%;
+    }
 }
 .icon {
     width: 50px;
