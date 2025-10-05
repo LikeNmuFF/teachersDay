@@ -3,382 +3,644 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sir Alawiya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Sir Alawiya - 4D Tribute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary-color: #5d4293; /* Deep Violet/Purple */
-            --secondary-color: #ffc107; /* Gold/Amber */
-            --background-light: #f4f6f9;
-            --text-dark: #333;
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --secondary: #fbbf24;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.6; /* Improved readability */
+            color: var(--dark);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
         }
 
-        .teacher-page {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #fff;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Hero Header */
-        .hero-header {
-            position: relative;
-            height: 400px;
+        /* Animated particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .hero-image {
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-bg {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7);
+            filter: brightness(0.5);
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1.15);
+        }
+
+        .hero-overlay {
             position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(236, 72, 153, 0.6));
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero-from {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        /* Glass card effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Icon section */
+        .icon-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        /* Interactive poem card */
+        .poem-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .poem-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .poem-card:hover::before {
+            transform: rotate(90deg);
+        }
+
+        .poem-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(139, 92, 246, 0.6);
+        }
+
+        .poem-card h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
             z-index: 1;
         }
 
-        .hero-text {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            margin: 0 10px; /* Prevents text from hugging screen edge on small devices */
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-text p {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        /* Main Content */
-        main {
-            padding: 40px 20px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            text-align: center;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-
-        /* Poem Section */
-        .poem-container {
-            text-align: center;
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 700px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 15px;
-            cursor: pointer; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 20px rgba(93, 66, 147, 0.3);
-        }
-        
-        .poem-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(93, 66, 147, 0.5);
-        }
-
-        .poem-container h2 {
-            color: var(--secondary-color);
-            margin-bottom: 0;
-        }
-        
-        .poem-container p {
-            margin: 10px 0 0;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-        
-        /* Quote Section */
-        .quote-container {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-top: 3px solid var(--secondary-color);
-            border-bottom: 3px solid var(--secondary-color);
-        }
-
-        .quote-container blockquote {
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--primary-color);
-            margin: 0;
-            padding: 0 20px;
-        }
-        
-        .quote-container cite {
-            display: block;
-            margin-top: 15px;
+        .poem-card p {
+            color: rgba(255, 255, 255, 0.95);
             font-size: 1.1rem;
-            font-weight: 600;
-            color: #6c757d;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Gallery Section */
-        .gallery-grid {
+        .poem-card .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-card .cta:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: scale(1.05);
+        }
+
+        /* Gallery */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery {
             display: grid;
-            /* Auto-fit and minmax makes this section inherently responsive */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             padding: 20px 0;
         }
 
         .gallery-item {
+            position: relative;
+            border-radius: 20px;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            height: 350px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
         }
-        
+
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.4s ease;
         }
 
-        /* Modal for Full Poem */
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(236, 72, 153, 0.5));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Quote section */
+        .quote-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 80px 60px;
+            margin: 60px 0;
+            text-align: center;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .quote-section blockquote {
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.6;
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .quote-section blockquote::before {
+            content: '"';
+            font-size: 8rem;
+            color: var(--secondary);
+            position: absolute;
+            left: -20px;
+            top: -40px;
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote-section cite {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-style: normal;
+        }
+
+        /* Modal */
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 10001; 
+            display: none;
+            position: fixed;
+            z-index: 9999;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.7); 
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            background-color: #fefefe;
-            /* Use a responsive margin on top */
-            margin: 10% auto; 
-            padding: 40px;
-            border-radius: 15px;
-            border: 5px solid var(--primary-color);
-            width: 90%; /* Use high percentage width for mobile, capped by max-width */
-            max-width: 600px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: white;
+            margin: 3% auto;
+            padding: 50px;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.5s ease;
             position: relative;
         }
-        
-        .modal-content #fullPoem {
-            text-align: center;
-            font-style: italic;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-            font-size: 1.1rem;
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-close {
-            color: var(--primary-color);
-            float: right;
-            font-size: 35px;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            font-size: 40px;
             font-weight: bold;
-            line-height: 1;
-        }
-
-        .modal-close:hover,
-        .modal-close:focus {
-            color: #ff0000;
-            text-decoration: none;
+            color: var(--primary);
             cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* ==================================== */
-        /* === MEDIA QUERIES FOR MOBILE UI === */
-        /* ==================================== */
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+        }
 
-        /* Styles for screens smaller than 768px (most tablets/large phones and smaller) */
+        .modal-content h2 {
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .modal-content #fullPoem {
+            line-height: 1.9;
+            font-size: 1.1rem;
+            color: var(--dark);
+            white-space: pre-wrap;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            /* Hero Header Adjustments */
-            .hero-header {
-                height: 300px; /* Reduce hero height for mobile */
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem; /* Smaller title font */
+            .hero {
+                height: 400px;
             }
 
-            .hero-text p {
-                font-size: 1.2rem; /* Smaller subtitle font */
+            .hero h1 {
+                font-size: 3rem;
             }
 
-            /* Main Content Adjustments */
-            main {
-                padding: 20px 10px; /* Reduce main padding */
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
 
-            h2 {
-                font-size: 1.7rem;
-                margin-bottom: 20px;
+            .glass-card {
+                padding: 30px;
             }
 
-            /* Quote Adjustments */
-            .quote-container blockquote {
-                font-size: 1.4rem; /* Smaller quote font */
-                padding: 0 10px;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .quote-container cite {
-                font-size: 1rem;
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            /* Poem Container Adjustments */
-            .poem-container {
-                margin: 20px auto;
-                padding: 20px;
+            .quote-section {
+                padding: 40px 30px;
             }
 
-            .poem-container p {
-                font-size: 1rem !important; /* Smaller click prompt font */
+            .quote-section blockquote {
+                font-size: 1.5rem;
+                padding: 0 20px;
             }
 
-            /* Gallery Adjustments */
-            .gallery-grid {
-                /* Let auto-fit and minmax handle it, but reduce the min size if needed */
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
-            }
-
-            .gallery-item img {
-                height: 150px; /* Reduce image height for mobile */
-            }
-
-            /* Modal Adjustments */
             .modal-content {
-                margin: 5% auto; /* Move modal slightly higher on small screens */
-                padding: 20px;
-                width: 95%; /* Make it take up more screen width */
-            }
-
-            .modal-content #fullPoem {
-                font-size: 1rem;
+                padding: 30px;
+                margin: 10% auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="teacher-page">
-        <header class="hero-header">
-            <img src="asset/alawiya/pic1.jpg" alt="A personalized banner for Sir Alawiya" class="hero-image">
-            <div class="hero-text">
-                <h1 class="hero-title">Happy Teachers Day!</h1>
-                <p class="hero-subtitle">Sir Abramar Putong Alawiya</p>
-                <p class="hero-from">From BSCS III-B</p>
-            </div>
-        </header>
+    <!-- Animated particles -->
+    <div class="particles" id="particles"></div>
 
-        <main>
-            <section class="poem-container" id="poemContainer" data-aos="fade-up">
-                <h2>A Heartfelt Poem</h2>
-                <p>
-                    Written by: Erica Joy R. Lim<br>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero" data-aos="fade-up">
+            <img src="asset/alawiya/pic1.jpg" alt="Sir Alawiya" class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">From BSCS III-B</div>
+                <h1>Happy Teachers Day!</h1>
+                <p class="hero-subtitle">Sir Abramar Putong Alawiya</p>
+                <p class="hero-from">
+                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/tyrtsvxn.json"
+                        trigger="loop"
+                        stroke="light"
+                        state="loop-cycle"
+                        colors="primary:#911710"
+                        style="width:150px;height:150px">
+                    </lord-icon>
                 </p>
-                <p style="font-size: 1.2rem; margin-top: 10px; font-weight: 600;">
-                    Click to reveal the full poem! 📝
-                </p>
-            </section>
-            
-            <section class="gallery-container">
-                <h2 data-aos="fade-up">📸 Our Favorite Memories</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                        <img src="asset/alawiya/pic2.png" alt="Class Photo 1">
-                    </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                        <img src="asset/alawiya/pic3.png" alt="Class Photo 2">
-                    </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                        <img src="asset/alawiya/pic4.png" alt="Class Photo 3">
-                    </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-                        <img src="asset/alawiya/pic5.png" alt="Class Photo 4">
-                    </div>
+            </div>
+        </div>
+
+        <!-- Icon Section -->
+        <div class="icon-section" data-aos="zoom-in">
+            <lord-icon
+                src="https://cdn.lordicon.com/vxnxofpy.json"
+                trigger="loop"
+                state="loop-line"
+                colors="primary:#8b5cf6,secondary:#fbbf24,tertiary:#ec4899"
+                style="width:200px;height:200px">
+            </lord-icon>
+        </div>
+
+        <!-- Poem Card -->
+        <div class="glass-card" data-aos="fade-up">
+            <div class="poem-card" id="poemCard">
+                <h2>A Heartfelt Tribute</h2>
+                <p>A special message crafted with love and gratitude</p>
+                <p style="font-weight: 700; margin-top: 10px;">Written by: BSCS III-B</p>
+                <div class="cta">Click to Reveal ✨</div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="glass-card" data-aos="fade-up">
+            <h2 class="section-title">🖼️ Our Favorite Memories</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="asset/alawiya/pic2.png" alt="Memory 1">
                 </div>
-            </section>
-            
-            <section class="quote-container" data-aos="fade-in">
-                <h2>A Student's Appreciation</h2>
-                <blockquote data-aos="fade-right">
-                    "Sir Alawiya didn't just teach us the subject; He taught us how to love learning. His passion is truly infectious."
-                </blockquote>
-                <cite data-aos="fade-left">- eyyah</cite>
-            </section>
-        </main>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="asset/alawiya/pic3.png" alt="Memory 2">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="asset/alawiya/pic4.png" alt="Memory 3">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="asset/alawiya/pic5.png" alt="Memory 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote Section -->
+        <div class="quote-section" data-aos="fade-up">
+            <h2>A Student's Appreciation</h2>
+            <blockquote>
+                Sir Alawiya didn't just teach us the subject; He taught us how to love learning. His passion is truly infectious.
+            </blockquote>
+            <cite>— eyyah & mvff</cite>
+        </div>
     </div>
 
+    <!-- Modal -->
     <div id="poemModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2 style="color: var(--primary-color);">Poem Title</h2>
-            <p id="fullPoem" style="white-space: pre-wrap; font-size: 1.1rem; line-height: 1.8;">
-                Poem drop here.
-            </p>
+            <h2>Happeee Teacha's Dae Sire!</h2>
+            <p id="fullPoem">From your ever-grateful students, BSCS III-B
+
+Sir, as we celebrate this special day for teachers, we wish to take a moment to express our profound gratitude for your mentorship, guidance, and constant inspiration throughout our collegiate journey. For three long years, from the moment we commenced our college studies until the present, you have been one of the few instructors who has remained by our side, diligently shaping our intellectual abilities, challenging our limits, and fostering our growth not only as students but also as individuals.
+
+We recall vividly the experience of our first year. At that time, everything was novel, perplexing, and at times overwhelming. However, your composed and patient instructional approach made those difficult lessons more readily comprehensible. You never diminished our efforts when we faced difficulties. Instead, you instilled in us the confidence to persevere until successful. You consistently reminded us that learning is a process, that errors are integral to growth, and that every challenge can be overcome through concerted effort and self-belief.
+
+Now, as we are in our third year, we recognize the significant impact you have had on us. You have transcended the role of a mere teacher of System Fundamentals and Computational Science. You have functioned as a mentor who genuinely invested in our progress. You imparted lessons that extend well beyond coding, logic, and computation. You instructed us in patience, respect, teamwork, and responsibility. You demonstrated the meaning of professional passion and the fulfillment derived from sharing knowledge with others.
+
+Your dedication, Sir, is never overlooked. We observe the effort you commit to every discussion, the time devoted to lesson preparation, and the patience you extend to each of us. Even when the subject matter becomes highly complex or when the class is somewhat disruptive, you consistently manage to guide us with kindness and understanding. You transform the learning process into an enjoyable endeavor rather than a source of apprehension. For this, we shall remain perpetually grateful.
+
+We thank you for believing in us, particularly during moments when we struggled to maintain faith in ourselves. Thank you for your continued patience when our comprehension was slow, for offering second opportunities upon failure, and for consistently motivating us to achieve greater excellence. Thank you for being the type of educator who teaches not merely for grades, but for personal development and sustained learning.
+
+You have become a fundamental part of our college experience—a presence in every semester, every project, every moment of levity, and even every period of academic pressure. We have acquired substantial knowledge from you, not solely concerning computers and systems, but also regarding humility, respect, and perseverance.
+
+On this special occasion, we wish to convey the depth of our appreciation. You are a primary reason why we maintain our commitment to this course and why we strive for improvement daily. Your lessons will endure with us, long after our departure from this institution.
+
+We extend our wishes for good health, unending happiness, and continued success in your life and career. May you continue to inspire many more students like us—students who will always remember the teacher who guided them with patience, wisdom, and heart.
+
+Thank you for everything, Sir Abramar. You are truly exceptional.
+
+With love, respect, and gratitude,
+Your BSCS III-B Family</p>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize the AOS library
+        // Initialize AOS
         AOS.init({
-            duration: 1000, 
-            once: true,    
+            duration: 1000,
+            once: true,
+            offset: 100
         });
 
-        // --- Poem Modal Logic ---
-        const modal = document.getElementById("poemModal");
-        const poemContainer = document.getElementById("poemContainer");
-        const closeBtn = document.getElementsByClassName("modal-close")[0];
-
-        // Open the modal when the poem container is clicked
-        poemContainer.onclick = function() {
-            modal.style.display = "block";
+        // Create animated particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particlesContainer.appendChild(particle);
         }
 
-        // Close the modal when the user clicks on (x)
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
+        // Modal functionality
+        const modal = document.getElementById('poemModal');
+        const poemCard = document.getElementById('poemCard');
+        const closeBtn = document.querySelector('.modal-close');
 
-        // Close the modal when the user clicks anywhere outside of the modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        poemCard.onclick = () => modal.style.display = 'block';
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        };
+
+        // Parallax effect on hero
+        const hero = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (hero) {
+                hero.style.transform = `scale(1.1) translateY(${scrolled * 0.5}px)`;
             }
-        }
+        });
     </script>
 </body>
 </html>
-
