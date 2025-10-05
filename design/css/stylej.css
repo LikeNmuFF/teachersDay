@@ -1,0 +1,396 @@
+/* Import a modern, professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* --- MODERN & ELEGANT COLOR PALETTE --- */
+:root {
+    /* Changed color palette for a warmer, celebratory Teacher's Day theme */
+    --primary-color: #FFC300; /* Warm Gold/Yellow */
+    --secondary-color: #DA70D6; /* Orchid/Mauve Accent */
+    --background-panel: #2C0F2C; /* Deep Purple-Black panel background */
+    --background-body-start: #3A093A; /* Deep Purple/Violet gradient start */
+    --background-body-end: #1A051A;   /* Near Black gradient end */
+    --text-light: #f8f9fa;
+    --text-dark: #1a1a1a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    --border-radius: 12px;
+    --border-color: rgba(255, 195, 0, 0.5); /* Primary color border */
+}
+
+/* --- BASE STYLES --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: var(--text-light);
+    /* New dark gradient background for Teacher's Day */
+    background: linear-gradient(to bottom right, var(--background-body-start), var(--background-body-end));
+    background-attachment: fixed; /* Ensures gradient covers full height nicely */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Ensure font sizes scale nicely across devices */
+    font-size: 16px; /* Base font size */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2; /* Better readability */
+}
+
+/* --- CONTENT WRAPPER & LAYOUT --- */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Use responsive padding (e.g., 5% horizontal padding on small screens) */
+    padding: 40px 20px;
+}
+
+.main-layout {
+    display: grid;
+    /* Adjusted grid for better tablet/desktop use */
+    grid-template-columns: minmax(300px, 2.5fr) minmax(200px, 1fr);
+    gap: 40px;
+}
+
+/* --- HERO HEADER (MODIFIED TO INCLUDE BACKGROUND IMAGE AND OVERLAY) --- */
+.hero-header {
+    /* Use viewport height for better scaling on different devices */
+    height: 55vh; 
+    min-height: 300px; /* Minimum height for small devices */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 60px;
+    
+    /* ADD YOUR BACKGROUND IMAGE HERE */
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../../asset/jolo/pic8.jpg'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius); 
+    box-shadow: var(--shadow); 
+    position: relative;
+}
+
+/* Blur effect applied *behind* the text for contrast */
+.hero-text {
+    position: relative; 
+    z-index: 2; 
+    /* Use responsive padding */
+    padding: clamp(20px, 5vw, 40px); 
+    border-radius: var(--border-radius); 
+    
+    /* ADDED BLUR EFFECT */
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px); 
+    
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-text h1 {
+    /* Use clamp for fluid font sizing */
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    margin-bottom: 0.5rem; /* Reduced margin for the icon */
+    text-shadow: 0 4px 15px rgba(0,0,0,1); 
+    color: #fff;
+}
+
+/* --- NEW LORD ICON STYLING --- */
+.icon-wrapper {
+    margin: 10px auto 20px; /* Center and add vertical space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure the icon scales based on viewport width */
+    width: clamp(80px, 15vw, 150px);
+    height: clamp(80px, 15vw, 150px);
+}
+
+.icon-wrapper lord-icon {
+    width: 100% !important;
+    height: 100% !important;
+}
+/* --- END LORD ICON STYLING --- */
+
+.hero-text p {
+    /* Use clamp for fluid font sizing */
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem; /* Adjusted margin */
+}
+
+/* --- SHARED PANEL STYLES (SOLID BACKGROUND) --- */
+.poem-container,
+.carousel-aside,
+.gallery-item,
+.video-player-container { 
+    background-color: var(--background-panel);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    /* Reduced bottom margin slightly, adjusted in media queries */
+    margin-bottom: 30px; 
+}
+
+main {
+    grid-column: 1 / 2;
+}
+
+/* --- POEM CONTAINER --- */
+.poem-container {
+    /* Use responsive padding */
+    padding: clamp(20px, 4vw, 40px);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poem-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.poem-container h2 {
+    color: var(--primary-color);
+    font-size: clamp(1.5rem, 3vw, 2.2rem); /* Fluid font size */
+    margin-top: 0;
+}
+
+.poem-container p.poem-preview {
+    font-style: italic;
+    color: rgba(248, 249, 250, 0.7);
+}
+
+/* --- NEW VIDEO PLAYER STYLES --- */
+.video-player-container {
+    /* Use responsive padding */
+    padding: clamp(20px, 4vw, 40px);
+    text-align: center;
+}
+.video-player-container h2 {
+    color: var(--primary-color);
+    font-size: clamp(1.5rem, 3vw, 2.2rem); /* Fluid font size */
+    margin-top: 0;
+}
+.video-player-container p {
+    margin-bottom: 30px;
+    color: rgba(248, 249, 250, 0.7);
+}
+
+/* Video Aspect Ratio Wrapper (16:9) */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px; 
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none; 
+    object-fit: cover; 
+    border: none; 
+}
+
+/* --- GALLERY --- */
+.gallery-container {
+    margin-top: 60px; 
+}
+.gallery-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem); /* Fluid font size */
+}
+.gallery-grid {
+    display: grid;
+    /* Ensured images scale down nicely on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: clamp(15px, 4vw, 30px); /* Responsive gap */
+}
+.gallery-item {
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    margin-bottom: 0; 
+}
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+.gallery-grid img {
+    width: 100%;
+    /* Made height more flexible while maintaining a good look on desktop */
+    height: clamp(200px, 40vw, 300px); 
+    object-fit: cover;
+    display: block;
+}
+
+/* --- ASIDE & CAROUSEL --- */
+.carousel-aside {
+    grid-column: 2 / 3;
+    /* Use responsive padding */
+    padding: clamp(20px, 3vw, 25px);
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+    margin-bottom: 0;
+}
+.carousel-aside h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: clamp(1.5rem, 3vw, 2.2rem); /* Fluid font size */
+}
+.carousel-container {
+    /* Use a responsive height/aspect ratio for the carousel */
+    height: clamp(250px, 45vh, 400px);
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+.carousel-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.carousel-container img.active {
+    opacity: 1;
+}
+
+/* --- MODAL STYLES --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+.modal-content {
+    background-color: #212529;
+    color: var(--text-light);
+    margin: 5% auto;
+    /* Use responsive padding */
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 700px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.modal-content h2, .modal-content h3 { color: var(--primary-color); text-align: center; }
+.modal-content h3 { margin-top: 2em; }
+#fullPoem { line-height: 1.8; font-size: clamp(1rem, 2vw, 1.15rem); text-align: justify; }
+#fullPoem p { margin-bottom: 1.5em; }
+.modal-close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.modal-close:hover { color: var(--primary-color); transform: scale(1.1); }
+
+/* --- RESPONSIVE DESIGN (Refined) --- */
+
+/* Tablet/Large Mobile (Max width 992px) */
+@media (max-width: 992px) {
+    /* Stack the main content and aside vertically */
+    .main-layout { 
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+    /* Aside element should no longer be sticky */
+    .carousel-aside { 
+        position: static; 
+        /* Add some margin when it's stacked */
+        margin-bottom: 30px; 
+    }
+    .content-wrapper {
+        padding: 30px 20px;
+    }
+    .hero-header {
+        height: 40vh;
+        margin-bottom: 40px;
+    }
+    /* Icon size slightly smaller on tablets */
+    .icon-wrapper {
+        width: clamp(100px, 12vw, 130px);
+        height: clamp(100px, 12vw, 130px);
+    }
+}
+
+/* Mobile (Max width 600px - Adjusted from 480px for better intermediate mobile support) */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Slightly smaller base font on tiny screens */
+    }
+    .content-wrapper {
+        padding: 20px 15px; /* Tighter padding on very small screens */
+    }
+    .hero-header { 
+        height: 35vh; 
+        min-height: 250px;
+        margin-bottom: 30px;
+    }
+    
+    /* Icon size further reduced on small phones */
+    .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        margin: 5px auto 15px;
+    }
+    
+    /* General panel spacing reduction */
+    .poem-container, .video-player-container, .carousel-aside { 
+        margin-bottom: 20px; 
+    }
+    
+    .gallery-container {
+        margin-top: 40px;
+    }
+    
+    /* Ensure the gallery items remain readable on small screens */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+        gap: 15px;
+    }
+
+    /* Modal size adjustment for small screens */
+    .modal-content { 
+        margin: 10% auto;
+        padding: 20px;
+    }
+    
+    .modal-close {
+        font-size: 30px;
+        top: 10px;
+        right: 20px;
+    }
+}

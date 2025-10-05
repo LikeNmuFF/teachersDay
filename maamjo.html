@@ -3,142 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Ma'am Jolo</title>
-    <link rel="stylesheet" href="design/css/style.css">
+    <title>Ma'am Sitti Mariam Jolo</title>
+    <link rel="icon" href="asset/cictt.png" type="image/png">
+    <link rel="stylesheet" href="design/css/stylej.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="design/js/responsive.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 <body>
-    <div class="teacher-page">
-        <header class="hero-header">
-            <img src="asset/jolo/pic4.jpg" alt="A personalized banner" class="hero-image">
+
+    <div class="content-wrapper">
+        <header class="hero-header" data-aos="fade-in">
             <div class="hero-text">
-                <h1>A Happy Teachers Day, Ma'am Sitti Mariam Morales Jolo!</h1>
-                <p>From <b>BSCS III-B</b> </p>
+                <h1>Happy Teacher's Day, Ma'am Sitti Mariam Morales Jolo!</h1>
+                <div class="icon-wrapper">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/nsqneknp.json"
+                        trigger="loop"
+                        delay="1000"
+                        state="morph-code"
+                        colors="primary:#6c16c7,secondary:#4f1091,tertiary:#ffc738,quaternary:#8930e8,quinary:#e8b730,senary:#f24c00"
+                        style="width:150px;height:150px">
+                    </lord-icon>
+                </div>
+                <p>With love and gratitude from <b>BSCS III-B</b></p>
             </div>
         </header>
 
-        <main>
-            <section class="poem-container" id="poemContainer" data-aos="fade-up">
-                <h2>A Poem For You (Click to Read)</h2>
-                <p class="poem-preview">
-                    A Poem<br>
-                    Written by: Erica Joy R. Lim<br>
-                </p>
-            </section>
+        <div class="main-layout">
+            <main>
+                <section class="poem-container" id="poemContainer" data-aos="fade-up">
+                    <h2>A Tribute to a Guiding Light</h2>
+                    <p class="poem-preview">Click to Read the Full Message</p>
+                </section>
 
-            <section class="gallery-container">
-                <h2 data-aos="fade-up">Mini Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                        <img src="asset/jolo/pic5.jpg" alt="Gallery image 1">
-                        <div class="gallery-caption">
-                            
+                <section class="video-player-container" data-aos="fade-up">
+                    <h2>A Walk Down Memory Lane</h2>
+                    <p>A collection of moments from our Web Development class.</p>
+                    <div class="video-wrapper">
+                         <video controls poster="asset/jolo/picg1.jpg" src="asset/jolo/v1.mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+                <section class="gallery-container">
+                    <h2 data-aos="fade-up">Mini Gallery</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                            <img src="asset/jolo/picg1.jpg" alt="Ma'am Jolo at an event">
+                        </div>
+                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                            <img src="asset/jolo/picg2.jpg" alt="Ma'am Jolo smiling">
+                        </div>
+                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                            <img src="asset/jolo/picg3.jpg" alt="Ma'am Jolo with students">
+                        </div>
+                        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                            <img src="asset/jolo/picg1.jpg" alt="Ma'am Jolo in a classroom setting">
                         </div>
                     </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                        <img src="asset/jolo/pic2.jpg" alt="Gallery image 2">
-                        <div class="gallery-caption">
-                            
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                        <img src="asset/jolo/pic3.jpg" alt="Gallery image 3">
-                        <div class="gallery-caption">
-                            
-                        </div>
+                </section>
+            </main>
 
-                    </div>
-                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-                        <img src="asset/jolo/pic6.jpg" alt="Gallery image 4">
-                        <div class="gallery-caption">
-                            
-                        </div>
-                   </div> 
+            <aside class="carousel-aside" data-aos="fade-left">
+                <h2>Ma'am's Moments</h2>
+                <div class="carousel-container">
+                    <img src="asset/jolo/pic1.jpg" alt="Ma'am Jolo Image 1" class="active">
+                    <img src="asset/jolo/pic2.jpg" alt="Ma'am Jolo Image 2">
+                    <img src="asset/jolo/pic7.jpg" alt="Ma'am Jolo Image 3">
+                    <img src="asset/jolo/pic8.jpg" alt="Ma'am Jolo Image 4">
                 </div>
-            </section>
-        </main>
-
-        <aside class="carousel-aside" data-aos="fade-left">
-            <h2>Ma'am's Moments</h2>
-            <div class="carousel-container">
-                <img src="asset/jolo/pic1.jpg" alt="Ma'am Jolo Image 1" class="active">
-                <img src="asset/jolo/pic2.jpg" alt="Ma'am Jolo Image 2">
-                <img src="asset/jolo/pic3.jpg" alt="Ma'am Jolo Image 3">
-            </div>
-        </aside>
-
+            </aside>
+        </div>
     </div>
 
     <div id="poemModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <div class="tulip-decor tulip-top-left"></div>
-            <div class="tulip-decor tulip-bottom-right"></div>
             <h2>The Guiding Light</h2>
-            <p id="fullPoem">
-
-            </p>
+            <div id="fullPoem">
+                 <p>Happy Teacher’s Day, Ma’am Sitti Mariam M. Jolo! To our ever-grateful BSCS III-B family, we extend the warmest wishes on this special day!</p>
+                <p>Ma'am, even though we only had the chance to be your students during the second semester of our first year, your impact on us remains strong up to this day. It’s amazing how someone we’ve only had for a short time could leave such a deep and lasting mark in our hearts. Your patience, kindness, guidance, and constant support have truly meant so much to all of us.</p>
+                <h3>A Mentor Who Truly Cares</h3>
+                <p>From the start, you have always been one of those teachers who made us feel seen, valued, and cared for. You were not only an instructor but also like a guardian within the college always checking on us, supporting our activities, and cheering for our victories, big or small. Even after our class ended, you never stopped being there for us. You always find time to show your support for our set, and that means more than words can express.</p>
+                <p>Your dedication and concern go far beyond the boundaries of a classroom. You make sure that our college journey is as comfortable as possible, that we’re doing okay, and that we’re finding joy in the things we do. We can really feel that you genuinely care about your students not just as learners, but as people trying to find their way. That genuine connection is something we will never forget.</p>
+                <h3>More Than a Teacher</h3>
+                <p>In the web development program, your willingness to help us understand complex concepts has made a significant impact on our academic journey. Your passion for education and your ability to connect with your students is truly inspiring.</p>
+                <p>Beyond the academic, your dedication as a table tennis coach has helped players develop their skills and build confidence in the sport. You’re not just teaching code or a sport; you're shaping minds and characters.</p>
+                <p>We admire your kindness, your warmth, and your humility. You inspire us to be better not just academically, but personally. You’ve shown us how a simple act of encouragement can lift our spirits, and how a few caring words can make a tiring day lighter. That’s why we still look up to you with so much respect and gratitude.</p>
+                <h3>Thank You, Ma’am</h3>
+                <p>Thank you for being one of our constant supporters. Thank you for believing in our abilities, for guiding us even from afar, and for reminding us that there are teachers who truly care about their students’ journey, even when the subject ends. You are one of those rare mentors who leave a mark that time cannot fade.</p>
+                <p>We miss your warmth, your gentle way of teaching, and your inspiring words that always brighten our days. We are truly looking forward to the day when we’ll get to be in your class again.</p>
+                <p>On this special day, we want to celebrate you not just as a teacher, but as someone who has touched our hearts with kindness and care. May your days be filled with peace, love, and joy. You deserve all the appreciation and happiness in the world. We wish you good health, more blessings, and endless success in your teaching journey.</p>
+                <p>Thank you for your hard work, care, and love for all the students in the CICTT department. You are loved and appreciated more than you know.</p>
+                <p><b>With heartfelt gratitude and love,<br>Your BSCS III-B Family</b></p>
+            </div>
         </div>
     </div>
 
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialize the AOS library
-      AOS.init({
-          duration: 800, // animation duration in milliseconds
-          once: true,     // whether animation should happen only once - while scrolling down
-      });
-
-      // --- Poem Modal Logic ---
+      AOS.init({ duration: 800, once: true });
       const modal = document.getElementById("poemModal");
       const poemContainer = document.getElementById("poemContainer");
       const closeBtn = document.getElementsByClassName("modal-close")[0];
-
-      // Open the modal when the poem container is clicked
-      poemContainer.onclick = function() {
-        modal.style.display = "block";
-      }
-
-      // Close the modal when the user clicks on (x)
-      closeBtn.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      // Close the modal when the user clicks anywhere outside of the modal
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-
-      // --- Carousel Logic ---
+      poemContainer.onclick = function() { modal.style.display = "block"; }
+      closeBtn.onclick = function() { modal.style.display = "none"; }
+      window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
       let currentImageIndex = 0;
       const images = document.querySelectorAll('.carousel-container img');
       const totalImages = images.length;
-
       function showNextImage() {
-        // Hide the current image
-        images[currentImageIndex].classList.remove('active');
-
-        // Calculate the next image index
-        currentImageIndex = (currentImageIndex + 1) % totalImages;
-
-        // Show the new image
-        images[currentImageIndex].classList.add('active');
+        if (totalImages > 1) {
+          images[currentImageIndex].classList.remove('active');
+          currentImageIndex = (currentImageIndex + 1) % totalImages;
+          images[currentImageIndex].classList.add('active');
+        }
       }
-
-      // Start the carousel (change image every 4 seconds)
-      if (totalImages > 1) {
-          setInterval(showNextImage, 4000);
-      }
-    // Check if the isLoggedIn flag is NOT set to 'true' in localStorage
-    if (localStorage.getItem('isLoggedIn') !== 'true') {
-        // Redirect back to the login page (index.html)
-        window.location.href = 'index.html'; 
-    }
+      if (totalImages > 1) { setInterval(showNextImage, 4000); }
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            // Redirect back to the login page (index.html)
+            window.location.href = 'index.html'; 
+        }
     </script>
 </body>
 </html>
-
